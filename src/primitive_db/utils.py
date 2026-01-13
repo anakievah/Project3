@@ -6,6 +6,7 @@ from typing import Any
 
 from src.constants import DATA_DIR
 
+
 def load_metadata(filepath: str) -> dict[str, Any]:
     """Load metadata from JSON file, return empty dict if file is missing."""
     try:

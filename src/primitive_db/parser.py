@@ -61,9 +61,7 @@ def parse_insert(tokens: list[str]) -> tuple[str, list[str]]:
         raise ValueError("Отсутствует ключевое слово values.")
     table_name = tokens[2]
     # всё после 'values' собираем обратно в одну строку
-    values_index = next(
-        i for i, t in enumerate(tokens) if t.lower() == "values"
-    )
+    values_index = next(i for i, t in enumerate(tokens) if t.lower() == "values")
     values_segment = " ".join(tokens[values_index + 1 :]).strip()
     values = parse_values_segment(values_segment)
     return table_name, values
@@ -77,9 +75,8 @@ def parse_where(tokens: list[str]) -> dict[str, Any]:
         raise ValueError("Ожидался оператор '=' в where.")
     column = tokens[0]
     value_str = " ".join(tokens[2:])
-    if (
-        (value_str.startswith('"') and value_str.endswith('"'))
-        or (value_str.startswith("'") and value_str.endswith("'"))
+    if (value_str.startswith('"') and value_str.endswith('"')) or (
+        value_str.startswith("'") and value_str.endswith("'")
     ):
         value_str = value_str[1:-1]
     value = _parse_literal(value_str)

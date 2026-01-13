@@ -4,7 +4,8 @@ from typing import Any
 
 from src.constants import VALID_TYPES
 from src.decorators import confirm_action, create_cacher, handle_db_errors, log_time
-from .utils import load_table_data, save_table_data
+
+from .utils import load_table_data
 
 _cacher = create_cacher()
 
@@ -24,6 +25,7 @@ def _parse_column_spec(spec: str) -> tuple[str, str]:
 def list_tables(metadata: dict[str, Any]) -> list[str]:
     """Return list of table names."""
     return sorted(metadata.keys())
+
 
 @handle_db_errors
 def create_table(
@@ -55,8 +57,10 @@ def drop_table(metadata: dict[str, Any], table_name: str) -> dict[str, Any]:
 
     # удаляем файл данных
     from .utils import _table_path
+
     data_file = _table_path(table_name)
     import os
+
     if os.path.exists(data_file):
         os.remove(data_file)
 
@@ -136,6 +140,7 @@ def select(
         return [row for row in data if _match_where(row, where)]
 
     return _cacher(key, load)
+
 
 @log_time
 @handle_db_errors

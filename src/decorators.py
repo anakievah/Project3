@@ -28,7 +28,7 @@ def handle_db_errors(func: Callable[..., Any]) -> Callable[..., Any]:
     return wrapper
 
 
-def confirm_action(action_name: str) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+def confirm_action(action_name: str) -> Callable:
     """Ask user to confirm dangerous operations."""
 
     def decorator(func: Callable[..., Any]) -> Callable[..., Any]:

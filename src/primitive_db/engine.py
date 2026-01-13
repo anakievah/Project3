@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import Any
 
 from prettytable import PrettyTable
-import prompt  # type: ignore[import-not-found]
 
 from src.constants import (
     HELP_HEADER_DATA,
@@ -22,7 +21,7 @@ from .parser import (
     parse_where,
     split_command,
 )
-from .utils import load_metadata, save_metadata, load_table_data, save_table_data
+from .utils import load_metadata, save_metadata, save_table_data
 
 
 def print_help_tables() -> None:
@@ -95,8 +94,7 @@ def _handle_info(metadata: dict[str, Any], tokens: list[str]) -> None:
     print(f"Таблица: {table_name}")
     cols = result["columns"]
     print(
-        "Столбцы: "
-        + ", ".join(f"{name}:{type_name}" for name, type_name in cols),
+        "Столбцы: " + ", ".join(f"{name}:{type_name}" for name, type_name in cols),
     )
     print(f"Количество записей: {result['rows']}")
     print()

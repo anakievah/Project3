@@ -10,6 +10,6 @@ HELP_HEADER_TABLES = "***Управление таблицами***"
 HELP_HEADER_DATA = "***Операции с данными***"
 
 UNKNOWN_COMMAND_TEMPLATE = 'Команда "{cmd}" не распознана. Повторите ввод.'
-INVALID_VALUE_TEMPLATE = 'Недопустимое значение: {val}. Попробуйте снова.'
+INVALID_VALUE_TEMPLATE = "Недопустимое значение: {val}. Попробуйте снова."
 
 INFO_TABLE_HEADER = "***Информация о таблице***"
