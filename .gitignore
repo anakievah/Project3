@@ -1,0 +1,19 @@
+# Виртуальные окружения
+.venv/
+venv/
+
+# Сборка и дистрибутивы
+dist/
+*.egg-info/
+
+# Python кэш
+__pycache__/
+*.pyc
+
+# Данные БД (по ТЗ)
+db_meta.json
+data/
+
+# Редакторы
+.vscode/
+.idea/
