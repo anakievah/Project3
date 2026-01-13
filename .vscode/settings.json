@@ -1,0 +1,11 @@
+{
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [
+        88
+    ],
+    "python.terminal.activateEnvironment": true
+}
